@@ -14,16 +14,18 @@ namespace WebApp
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
         protected void Page_Load(object sender, EventArgs e)
         {
-            string sql = "Select *from [User] where Username !='Admin'";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.CommandType = System.Data.CommandType.Text;
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                DropDownList1.Items.Add(new ListItem(reader["Username"].ToString()));
-            }
-            con.Close();
+            DropDownList1.Items.Clear();
+                string sql = "Select * from [User] where Username !='Admin'";
+                con.Open();
+                SqlCommand cmd = new SqlCommand(sql, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DropDownList1.Items.Add(new ListItem(reader["Username"].ToString()));
+                }
+                con.Close();
+           
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
@@ -41,13 +43,14 @@ namespace WebApp
             try
             {
                 cmd.ExecuteNonQuery();
-                Label1.Text = "User Successfully Deleted";
+                Label1.Text = "User Successfully Deleted " + user;
             }
             catch (Exception ex)
             {
                 Label1.Text = ex.Message;
             }
             con.Close();
+            Response.Redirect(Request.FilePath);
         }
     }
 }
