@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Login.aspx" />
+    <Content Include="SubjectCoordinator.aspx" />
     <Content Include="Web.config" />
     <Content Include="Admin.aspx" />
     <Content Include="Deleteuser.aspx" />
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="Deleteuser.aspx.designer.cs">
       <DependentUpon>Deleteuser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectCoordinator.aspx.cs">
+      <DependentUpon>SubjectCoordinator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubjectCoordinator.aspx.designer.cs">
+      <DependentUpon>SubjectCoordinator.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
