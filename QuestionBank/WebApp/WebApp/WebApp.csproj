@@ -70,6 +70,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
     <Content Include="Admin.aspx" />
+    <Content Include="Deleteuser.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -93,6 +94,13 @@
     </Compile>
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Deleteuser.aspx.cs">
+      <DependentUpon>Deleteuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Deleteuser.aspx.designer.cs">
+      <DependentUpon>Deleteuser.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
