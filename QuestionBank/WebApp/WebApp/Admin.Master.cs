@@ -23,5 +23,15 @@ namespace WebApp
         {
             
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

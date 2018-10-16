@@ -13,7 +13,17 @@ namespace WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Button b1 = Master.FindControl("Button1") as Button;
+            b1.Click += new EventHandler(B1_Click);
 
+            Button b2 = Master.FindControl("Button2") as Button;
+            b2.Click += new EventHandler(B2_Click);
+
+            Button b3 = Master.FindControl("Button3") as Button;
+            b3.Click += new EventHandler(B3_Click);
+
+            Button b4 = Master.FindControl("Button4") as Button;
+            b4.Click += new EventHandler(B4_Click);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -51,6 +61,26 @@ namespace WebApp
         protected void Button2_Click(object sender, EventArgs e)
         {
             TextBox1.Text = TextBox2.Text = TextBox3.Text = TextBox4.Text = "";
+        }
+
+        private void B4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Deleteuser.aspx");
+        }
+
+        private void B3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Assignsubcord.aspx");
+        }
+
+        private void B2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Viewpaper.aspx");
+        }
+
+        private void B1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Newlogin.aspx");
         }
     }
 }

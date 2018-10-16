@@ -32,12 +32,12 @@ namespace WebApp
 
         private void B3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Newlogin.aspx");
+            Response.Redirect("Assignsubcord.aspx");
         }
 
         private void B2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Newlogin.aspx");
+            Response.Redirect("Viewpaper.aspx");
         }
 
         private void B1_Click(object sender, EventArgs e)

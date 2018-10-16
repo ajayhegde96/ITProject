@@ -20,9 +20,9 @@
                 <br />
                 <br />
                 &nbsp;&nbsp;
-                <asp:Button ID="Button2" runat="server" Text="View Ques Paper" />
+                <asp:Button ID="Button2" runat="server" Text="View Ques Paper" OnClick="Button2_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button3" runat="server" Text="Assign Sub Coord" />
+                <asp:Button ID="Button3" runat="server" Text="Assign Sub Coord" OnClick="Button3_Click" />
 
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
