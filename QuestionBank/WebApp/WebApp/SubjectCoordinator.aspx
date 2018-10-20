@@ -10,6 +10,19 @@
 </style>
     <style type="text/css">
 .floatRight { float: right; }
+        .rightPanel {
+            position:absolute;
+            top:auto;
+            right:40%;
+            width:34%;
+        }
+        .leftPanel {
+            position:absolute;
+            top:auto;
+            left:10px;
+            width:33%;
+        }
+
 </style>
 
     <script type="text/javascript">
@@ -29,7 +42,7 @@
 </head>
 <body style="width: 615px">
     <form id="form1" runat="server">
-        <div style="width:497px">
+        <div class="leftPanel">
             <asp:Panel ID="Panel1" runat="server" CssClass="floatLeft">
                 <asp:Button ID="chooseQuestionsButton" runat="server" OnClick="ChooseQuestions"  Text="Choose Questions"/>
                 <br />
@@ -63,7 +76,7 @@
         </div>
 
 
-        <div>
+        <div class="rightPanel">
             <asp:Panel ID="Panel2" runat="server" CssClass="floatRight">
                  <asp:Button ID="viewPaperButton" runat="server" OnClick="ViewQuestionPaper"  Text="View Final Question Paper"/>
                 <br />
