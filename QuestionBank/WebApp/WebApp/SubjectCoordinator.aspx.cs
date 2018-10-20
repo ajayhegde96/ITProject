@@ -15,6 +15,9 @@ namespace WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Sid"] == null)
+                Response.Redirect("Login.aspx");
+
             if (!IsPostBack)
             {
                 GridView1.Visible = false;

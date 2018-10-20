@@ -13,6 +13,9 @@ namespace WebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Sid"] == null)
+                Response.Redirect("Login.aspx");
+
             Button b1 = Master.FindControl("Button1") as Button;
             b1.Click += new EventHandler(B1_Click);
 
@@ -42,7 +45,7 @@ namespace WebApp
             }
             else
             {
-                string sql1 = "insert into [User](UserName,Password,Subject,Role) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + TextBox4.Text + "')";
+                string sql1 = "insert into [User](UserName,Password,Subject,Role) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + DropDownList1.SelectedValue + "')";
                 cmd = new SqlCommand(sql1, con);
                 cmd.CommandType = System.Data.CommandType.Text;
                 try
@@ -60,7 +63,7 @@ namespace WebApp
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            TextBox1.Text = TextBox2.Text = TextBox3.Text = TextBox4.Text = "";
+            TextBox1.Text = TextBox2.Text = TextBox3.Text  = "";
         }
 
         private void B4_Click(object sender, EventArgs e)

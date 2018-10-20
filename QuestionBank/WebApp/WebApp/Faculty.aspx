@@ -32,7 +32,6 @@
                 <br />
                 Type:&nbsp;
                 <asp:DropDownList ID="DropDownList1" runat="server" Height="23px" EnableViewState="false">
-                    <asp:ListItem>--Select--</asp:ListItem>
                     <asp:ListItem>Theory</asp:ListItem>
                     <asp:ListItem>MCQ</asp:ListItem>
                 </asp:DropDownList>

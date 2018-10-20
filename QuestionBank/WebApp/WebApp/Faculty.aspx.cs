@@ -13,6 +13,9 @@ namespace WebApp
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Sid"] == null)
+                Response.Redirect("Login.aspx");
+
             Panel1.Visible = false;
             Panel2.Visible = false;
         }

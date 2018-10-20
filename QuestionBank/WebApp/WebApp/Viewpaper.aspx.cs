@@ -14,6 +14,9 @@ namespace WebApp
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Sid"] == null)
+                Response.Redirect("Login.aspx");
+
             Button b1 = Master.FindControl("Button1") as Button;
             b1.Click += new EventHandler(B1_Click);
 

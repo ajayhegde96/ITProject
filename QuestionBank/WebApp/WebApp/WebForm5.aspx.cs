@@ -4,16 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data.Sql;
+using System.Data.SqlClient;
+using System.Data.SqlTypes;
 namespace WebApp
 {
-    public partial class WebForm3 : System.Web.UI.Page
+    public partial class WebForm5 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Sid"] == null)
-                Response.Redirect("Login.aspx");
-
             Button b1 = Master.FindControl("Button1") as Button;
             b1.Click += new EventHandler(B1_Click);
 
@@ -25,8 +24,10 @@ namespace WebApp
 
             Button b4 = Master.FindControl("Button4") as Button;
             b4.Click += new EventHandler(B4_Click);
-
         }
+
+
+
 
         private void B4_Click(object sender, EventArgs e)
         {
@@ -46,6 +47,19 @@ namespace WebApp
         private void B1_Click(object sender, EventArgs e)
         {
             Response.Redirect("Newlogin.aspx");
+        }
+
+        protected void submit(object sender, EventArgs e)
+        {
+            string str = @"Data Source = (localdb)\MSSQLLocalDB;Initial Catalog=QuestionBank;Integrated Security=True;";
+            SqlConnection con = new SqlConnection(str);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Delete from [User] where Username=@p1", con);
+            string p1 = DropDownList1.SelectedItem.Text;
+            cmd.Parameters.AddWithValue("@p1", p1);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            Response.Redirect(Request.FilePath);
         }
     }
 }

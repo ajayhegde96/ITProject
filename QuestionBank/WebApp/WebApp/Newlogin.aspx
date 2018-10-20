@@ -26,11 +26,14 @@
         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp; Role&nbsp;
-        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp; Role&nbsp;&nbsp;
+        <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:ListItem>Admin</asp:ListItem>
+            <asp:ListItem>Faculty</asp:ListItem>
+            <asp:ListItem>FacultyCoordinator</asp:ListItem>
+        </asp:DropDownList>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TextBox4" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>
         <br />
         <br />
          &nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
