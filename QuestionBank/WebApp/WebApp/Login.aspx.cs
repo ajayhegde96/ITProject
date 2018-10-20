@@ -27,6 +27,8 @@ namespace WebApp
             if (reader.Read())
             {
                 string role = reader["Role"].ToString();
+                string subject = reader["Subject"].ToString();
+                Session["Sub"] = subject;
                 con.Close();
                 Response.Redirect(string.Format("{0}.aspx",role));
 

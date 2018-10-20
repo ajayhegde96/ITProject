@@ -36,21 +36,17 @@ namespace WebApp
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    DropDownList1.Items.Add(new ListItem(reader["Username"].ToString()));
+                    DropDownList1.Items.Add(reader[1].ToString());
                 }
                 con.Close();
            
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            string user = DropDownList1.Items[DropDownList1.SelectedIndex].Value.ToString();
+            string user = DropDownList1.SelectedItem.Text;
             string sql = "Delete from [User] where Username='" + user + "'";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.CommandType = System.Data.CommandType.Text;

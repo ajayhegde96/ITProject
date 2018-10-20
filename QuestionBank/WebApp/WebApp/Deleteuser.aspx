@@ -6,7 +6,7 @@
         <br />
 
         Select User To Delete&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        <asp:DropDownList ID="DropDownList1" runat="server"  EnableViewState="false" >
         </asp:DropDownList>
         <br />
         <br />
