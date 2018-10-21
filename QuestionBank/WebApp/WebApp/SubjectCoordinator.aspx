@@ -13,14 +13,14 @@
         .rightPanel {
             position:absolute;
             top:auto;
-            right:40%;
-            width:34%;
+            right:5%;
+            width:45%;
         }
         .leftPanel {
             position:absolute;
             top:auto;
-            left:10px;
-            width:33%;
+            left:2%;
+            width:45%;
         }
 
 </style>
