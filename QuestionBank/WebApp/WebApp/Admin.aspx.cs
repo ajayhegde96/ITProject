@@ -40,7 +40,7 @@ namespace WebApp
 
         private void B2_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Viewpaper.aspx");
+            Response.Redirect("ViewQuestionpaper.aspx");
         }
 
         private void B1_Click(object sender, EventArgs e)
