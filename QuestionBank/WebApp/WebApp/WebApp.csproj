@@ -75,11 +75,8 @@
     <Content Include="Deleteuser.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Viewpaper.aspx" />
-<<<<<<< HEAD
     <Content Include="ViewQuestionPaper.aspx" />
-=======
     <Content Include="Subcoord.aspx" />
->>>>>>> Delete alert and subcoord
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -142,7 +139,6 @@
     <Compile Include="Viewpaper.aspx.designer.cs">
       <DependentUpon>Viewpaper.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="ViewQuestionPaper.aspx.cs">
       <DependentUpon>ViewQuestionPaper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -150,12 +146,10 @@
     <Compile Include="ViewQuestionPaper.aspx.designer.cs">
       <DependentUpon>ViewQuestionPaper.aspx</DependentUpon>
     </Compile>
-=======
     <Compile Include="Subcoord.aspx.cs">
       <DependentUpon>Subcoord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
->>>>>>> Delete alert and subcoord
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.Master" />
