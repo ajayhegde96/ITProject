@@ -1,0 +1,5 @@
+﻿INSERT INTO [dbo].[Subjects] ([Subject], [Coordinator], [Paper]) VALUES (N'Biology', NULL, 0)
+INSERT INTO [dbo].[Subjects] ([Subject], [Coordinator], [Paper]) VALUES (N'Chemistry', NULL, 0)
+INSERT INTO [dbo].[Subjects] ([Subject], [Coordinator], [Paper]) VALUES (N'EOM', NULL, 0)
+INSERT INTO [dbo].[Subjects] ([Subject], [Coordinator], [Paper]) VALUES (N'Maths', NULL, 0)
+INSERT INTO [dbo].[Subjects] ([Subject], [Coordinator], [Paper]) VALUES (N'Physics', NULL, 0)
