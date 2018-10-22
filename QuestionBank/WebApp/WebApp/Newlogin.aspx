@@ -20,10 +20,10 @@
         <br />
         <br />
         &nbsp;&nbsp;&nbsp; Subject&nbsp;
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Subject" DataValueField="Subject"></asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT DISTINCT [Subject] FROM [Subjects]"></asp:SqlDataSource>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBox3" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp; Role&nbsp;&nbsp;

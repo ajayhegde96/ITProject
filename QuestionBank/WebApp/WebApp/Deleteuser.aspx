@@ -10,7 +10,7 @@
         </asp:DropDownList>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+        &nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" OnClientClick="javascript:return(window.confirm('User Deleted'))"/>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server"></asp:Label>

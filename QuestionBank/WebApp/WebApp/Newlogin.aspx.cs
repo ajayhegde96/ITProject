@@ -45,7 +45,7 @@ namespace WebApp
             }
             else
             {
-                string sql1 = "insert into [User](UserName,Password,Subject,Role) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + TextBox3.Text + "','" + DropDownList1.SelectedValue + "')";
+                string sql1 = "insert into [User](UserName,Password,Subject,Role) values('" + TextBox1.Text + "','" + TextBox2.Text + "','" + DropDownList2.SelectedValue + "','" + DropDownList1.SelectedValue + "')";
                 cmd = new SqlCommand(sql1, con);
                 cmd.CommandType = System.Data.CommandType.Text;
                 try
@@ -57,13 +57,17 @@ namespace WebApp
                 {
                     Label1.Text = ex.Message;
                 }
+                finally
+                {
+                    con.Close();
+                }
             }
             con.Close();
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            TextBox1.Text = TextBox2.Text = TextBox3.Text  = "";
+            TextBox1.Text = TextBox2.Text = "";
         }
 
         private void B4_Click(object sender, EventArgs e)
