@@ -14,9 +14,10 @@
             <asp:BoundField DataField="marks" HeaderText="marks" SortExpression="marks" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [question_details], [type], [marks] FROM [Questions] WHERE ([subject] = @subject)">
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [question_details], [type], [marks] FROM [Questions] WHERE (([subject] = @subject) AND ([is_selected] = @is_selected))">
         <SelectParameters>
             <asp:ControlParameter ControlID="DropDownList1" Name="subject" PropertyName="SelectedValue" Type="String" />
+            <asp:Parameter DefaultValue="1" Name="is_selected" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
     <br/>

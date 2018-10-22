@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,9 +16,20 @@ namespace WebApp
             //Response.Redirect("Login.aspx");
             if(IsPostBack)
             {
-                GridView1.DataSource = SqlDataSource2;
-                GridView1.Visible = true;
-                GridView1.DataBind();
+                DataView dv = (DataView)SqlDataSource2.Select(DataSourceSelectArguments.Empty);
+                int datacount = dv.Count;
+                if (datacount > 0)
+                {
+                    GridView1.DataSource = SqlDataSource2;
+                    GridView1.Visible = true;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    Response.Write("<script>alert('No Question Paper Found');</script>");
+                    GridView1.DataSource = null;
+                    GridView1.Visible = false;
+                }
             }
         }
 
