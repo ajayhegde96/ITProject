@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,9 +12,10 @@ namespace WebApp
     public partial class WebForm7 : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
+        string name = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Panel1.Visible = Panel2.Visible = false;
+           
             if (Session["Sid"] == null)
                 Response.Redirect("Login.aspx");
 
@@ -64,6 +66,7 @@ namespace WebApp
                     con.Close();
                 }
             }
+            TextBox1.Text = TextBox2.Text = TextBox3.Text = "";
         }
         protected void Button6_Click(object sender, EventArgs e)
         {
@@ -95,11 +98,13 @@ namespace WebApp
             {
                 con.Close();
             }
+            Response.Redirect(Request.FilePath);
         }
         protected void Button8_Click(object sender, EventArgs e)
         {
             string sql = "Update [User] set role='FacultyCoordinator' where Username ='" + DropDownList5.SelectedValue + "'";
             string sqll = "Update [Subjects] set Coordinator ='" + DropDownList5.SelectedValue + "' where Subject='" + DropDownList4.SelectedValue + "'";
+            string revert = "Update [User] set Role='Faculty' where Username='" + name + "'";
             try
             {
                 con.Open();
@@ -109,8 +114,11 @@ namespace WebApp
                 cmd = new SqlCommand(sqll, con);
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.ExecuteNonQuery();
+                cmd = new SqlCommand(revert, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
                 con.Close();
-                Label3.Text = DropDownList2.SelectedValue + " Assigned as Faculty Coordinator for " + DropDownList5.SelectedValue;
+                Label3.Text = DropDownList5.SelectedValue + " Assigned as Faculty Coordinator for " + DropDownList4.SelectedValue;
             }
             catch (Exception E)
             {
@@ -150,7 +158,7 @@ namespace WebApp
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    //Label1.Text += reader[0].ToString();
+                    
                     DropDownList4.Items.Add(reader[0].ToString());
                 }
                 con.Close();
@@ -166,8 +174,9 @@ namespace WebApp
         }
         protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string name=null;
-            string sql2 = "select * from [User] where Subject='" + DropDownList4.SelectedValue + "' and Role!='FacultyCoordinator'";
+            
+            string sql2 = "select * from [User] where Subject='" + DropDownList4.SelectedItem.Text + "' and Role!='FacultyCoordinator'";
+            Label3.Text += DropDownList4.SelectedItem.Text+" ";
             DropDownList5.Items.Clear();
             try
             {
@@ -179,27 +188,29 @@ namespace WebApp
                 {
                     DropDownList5.Items.Add(reader["Username"].ToString());
                 }
-                string cor = "select Coordinator from [Subjects] where Subject='" + DropDownList4.SelectedValue + "'";
+                Label3.Text += " haha ";
+                string cor = "select * from [Subjects] where Subject='" + DropDownList4.SelectedItem.Text + "'";
                 
                 cmd = new SqlCommand(cor, con);
                 cmd.CommandType = System.Data.CommandType.Text;
                 reader = cmd.ExecuteReader();
-                if (reader.Read())
+                
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                if(dt.Rows[0]["Coordinator"].ToString()=="")
                 {
-                    Label3.Text = "This subject has " + reader[0].ToString() + " as Coordinator";
-                    name = reader[0].ToString();
+                    Label3.Text = "No Coordinator exists for the subject";
                 }
                 else
-                    Label3.Text = "No Coordinator exists for the subject";
-                string revert="Update [User] set Role='Faculty' where Username='" + name + "'";
-                cmd = new SqlCommand(revert, con);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
+                {
+                    Label3.Text = "This subject has " + dt.Rows[0]["Coordinator"] + " as Coordinator";
+                }
+                
                 con.Close();
             }
             catch (Exception E)
             {
-                Label3.Text = E.Message.ToString();
+                Label3.Text += E.Message.ToString();
             }
             finally
             {

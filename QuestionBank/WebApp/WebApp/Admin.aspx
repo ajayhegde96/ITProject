@@ -5,15 +5,15 @@
      &nbsp;&nbsp;&nbsp;
     <br />
     <br />
-    &nbsp;&nbsp;&nbsp;       <asp:Button ID="Button1" runat="server" Text="Create New Login" OnClick="Button1_Click" />
+    &nbsp;&nbsp;&nbsp;       <asp:Button ID="Button1" runat="server" Text="Create New Login" OnClick="Button1_Click"  CausesValidation="false"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Delete User" />
+                <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="Delete User"  CausesValidation="false" />
                 <br />
                 <br />
                 &nbsp;&nbsp;
-                <asp:Button ID="Button2" runat="server" Text="View Ques Paper" OnClick="Button2_Click" />
+                <asp:Button ID="Button2" runat="server" Text="View Ques Paper" OnClick="Button2_Click"  CausesValidation="false"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="Button3" runat="server" Text="Assign Sub Coord" OnClick="Button3_Click" />
+                <asp:Button ID="Button3" runat="server" Text="Assign Sub Coord" OnClick="Button3_Click"  CausesValidation="false"/>
     <br />
     <br />
     <asp:Panel ID="Panel1" runat="server" Visible="false">
@@ -28,16 +28,26 @@
         &nbsp;&nbsp;&nbsp; &nbsp;
         <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
 &nbsp;
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RequiredFieldValidator ID="req2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>
         <br />
         <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="rpassword" runat="server" Text="Re-enter Password"></asp:Label>
+        &nbsp;&nbsp;
+        <asp:TextBox ID="TextBox3" runat="server" TextMode="Password"></asp:TextBox>
+        &nbsp;&nbsp;
+        <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Passwords do not match!" ControlToValidate="TextBox2" ControlToCompare="TextBox3"></asp:CompareValidator>
+        <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:RequiredFieldValidator ID="req3" runat="server" ErrorMessage="Enter Valid Data" ControlToValidate="TextBox3"></asp:RequiredFieldValidator>
+        <br />
+        <br />
         &nbsp;&nbsp;&nbsp; &nbsp;
         <asp:Label ID="subject" runat="server" Text="Subject"></asp:Label>
         &nbsp;
-        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Subject" DataValueField="Subject" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+        <asp:DropDownList ID="DropDownList2" runat="server"  DataSourceID="SqlDataSource1" DataTextField="Subject" DataValueField="Subject" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
         </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT DISTINCT [Subject] FROM [Subjects]"></asp:SqlDataSource>
         <br />
@@ -47,7 +57,7 @@
         &nbsp;&nbsp;&nbsp;
         <asp:Label ID="role" runat="server" Text="Role"></asp:Label>
         &nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+        <asp:DropDownList ID="DropDownList1" runat="server"  OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             <asp:ListItem>Admin</asp:ListItem>
             <asp:ListItem>Faculty</asp:ListItem>
             <asp:ListItem>FacultyCoordinator</asp:ListItem>
@@ -91,11 +101,11 @@
          &nbsp;
          <asp:Label ID="sdelete" runat="server" Text="Select User To Delete"></asp:Label>
          &nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList3" runat="server"  EnableViewState="true" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" AutoPostBack="true">
+        <asp:DropDownList ID="DropDownList3" runat="server"  EnableViewState="true" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged">
         </asp:DropDownList>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp;<asp:Button ID="Button7" runat="server" Text="Submit" OnClick="Button7_Click" /><%--OnClientClick="javascript:return(window.confirm('User Deleted'))"/>--%>
+        &nbsp;&nbsp;&nbsp;<asp:Button ID="Button7" runat="server" Text="Submit" OnClick="Button7_Click" OnClientClick="javascript:return(window.confirm('User Deleted'))"/>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp;<asp:Label ID="Label2" runat="server"></asp:Label>

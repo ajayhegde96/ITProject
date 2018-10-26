@@ -47,7 +47,8 @@
                 <asp:Button ID="chooseQuestionsButton" runat="server" OnClick="ChooseQuestions"  Text="Choose Questions"/>
                 <br />
                 <br />
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" OnRowDataBound="GridView1_RowDataBound" AutoGenerateColumns="False" DataKeyNames="id">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" OnRowDataBound="GridView1_RowDataBound" AutoGenerateColumns="False" DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="5">
+                    <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" ReadOnly="True" />
                         <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />
@@ -61,6 +62,15 @@
                             </itemtemplate>
                         </asp:Templatefield>
                     </Columns>
+                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                    <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                    <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                    <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                    <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [question_details], [type], [marks], [subject] FROM [Questions] WHERE ([is_selected] = @is_selected)">
                     <SelectParameters>
@@ -81,7 +91,8 @@
                  <asp:Button ID="viewPaperButton" runat="server" OnClick="ViewQuestionPaper"  Text="View Final Question Paper"/>
                 <br />
                 <br />
-                <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  DataKeyNames="id">
+                <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None">
+                    <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" ReadOnly="True" />
                         <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />
@@ -89,6 +100,15 @@
                         <asp:BoundField DataField="question_details" HeaderText="Question"/>
                         <asp:BoundField DataField="subject" HeaderText="subject" SortExpression="subject"/>
                     </Columns>
+                    <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+                    <SortedAscendingCellStyle BackColor="#FDF5AC" />
+                    <SortedAscendingHeaderStyle BackColor="#4D0000" />
+                    <SortedDescendingCellStyle BackColor="#FCF6C0" />
+                    <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [question_details], [type], [marks], [subject] FROM [Questions] WHERE ([is_selected] = @is_selected)">
                     <SelectParameters>

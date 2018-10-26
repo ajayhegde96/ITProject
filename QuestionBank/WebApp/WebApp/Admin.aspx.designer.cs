@@ -112,6 +112,42 @@ namespace WebApp {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator req2;
         
         /// <summary>
+        /// rpassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label rpassword;
+        
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        
+        /// <summary>
+        /// CompareValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+        
+        /// <summary>
+        /// req3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator req3;
+        
+        /// <summary>
         /// subject control.
         /// </summary>
         /// <remarks>
