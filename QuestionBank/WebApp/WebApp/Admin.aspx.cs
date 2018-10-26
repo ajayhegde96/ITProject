@@ -110,7 +110,7 @@ namespace WebApp
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.ExecuteNonQuery();
                 con.Close();
-                Label3.Text = DropDownList2.SelectedValue + " Assigned as Faculty Coordinator for " + DropDownList3.SelectedValue;
+                Label3.Text = DropDownList2.SelectedValue + " Assigned as Faculty Coordinator for " + DropDownList5.SelectedValue;
             }
             catch (Exception E)
             {
@@ -141,7 +141,7 @@ namespace WebApp
             Panel3.Visible = true;
             Panel1.Visible = Panel2.Visible = Panel4.Visible = false;
             DropDownList4.Items.Clear();
-            string sql1 = "select distinct Subject from [Subjects] where Coordinator is NULL";
+            string sql1 = "select distinct Subject from [Subjects]";
             try
             {
                 con.Open();
@@ -166,7 +166,8 @@ namespace WebApp
         }
         protected void DropDownList4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sql2 = "select * from [User] where Subject='" + DropDownList4.SelectedValue + "'";
+            string name=null;
+            string sql2 = "select * from [User] where Subject='" + DropDownList4.SelectedValue + "' and Role!='FacultyCoordinator'";
             DropDownList5.Items.Clear();
             try
             {
@@ -178,6 +179,22 @@ namespace WebApp
                 {
                     DropDownList5.Items.Add(reader["Username"].ToString());
                 }
+                string cor = "select Coordinator from [Subjects] where Subject='" + DropDownList4.SelectedValue + "'";
+                
+                cmd = new SqlCommand(cor, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Label3.Text = "This subject has " + reader[0].ToString() + " as Coordinator";
+                    name = reader[0].ToString();
+                }
+                else
+                    Label3.Text = "No Coordinator exists for the subject";
+                string revert="Update [User] set Role='Faculty' where Username='" + name + "'";
+                cmd = new SqlCommand(revert, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception E)
