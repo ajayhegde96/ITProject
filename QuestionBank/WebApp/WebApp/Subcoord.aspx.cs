@@ -12,10 +12,9 @@ namespace WebApp
     public partial class WebForm5 : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
-
+        String sql1, sql2;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             Button b1 = Master.FindControl("Button1") as Button;
             b1.Click += new EventHandler(B1_Click);
 
@@ -27,19 +26,51 @@ namespace WebApp
 
             Button b4 = Master.FindControl("Button4") as Button;
             b4.Click += new EventHandler(B4_Click);
+            if (!IsPostBack)
+            {
 
-            string sql1 = "select distinct Subject from [Subjects] where Coordinator='NULL'";
+                sql1 = "select distinct Subject from [Subjects] where Coordinator is NULL";
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(sql1, con);
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //Label1.Text += reader[0].ToString();
+                        DropDownList3.Items.Add(reader[0].ToString());
+                    }
+                    con.Close();
+                }
+                catch (Exception E)
+                {
+                    Label1.Text = E.Message.ToString();
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+           // DropDownList2.Items.Clear();
+            string sql = "Update [User] set role='FacultyCoordinator' where Username ='" + DropDownList2.SelectedValue + "'";
+            string sqll = "Update [Subjects] set Coordinator ='" + DropDownList2.SelectedValue + "' where Subject='"+DropDownList3.SelectedValue+"'";
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand(sql1, con);
+                SqlCommand cmd = new SqlCommand(sql, con);
                 cmd.CommandType = System.Data.CommandType.Text;
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    DropDownList3.Items.Add(reader[0].ToString());
-                }
+                cmd.ExecuteNonQuery();
+                cmd = new SqlCommand(sqll, con);
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.ExecuteNonQuery();
                 con.Close();
+                Label1.Text = DropDownList2.SelectedValue + " Assigned as Faculty Coordinator for " + DropDownList3.SelectedValue;
             }
             catch (Exception E)
             {
@@ -49,11 +80,17 @@ namespace WebApp
             {
                 con.Close();
             }
-            string sql2 = "select * from [User] where Subject='" + DropDownList3.SelectedValue + "'";
+        }
+
+        protected void DropDownList3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //DropDownList1.Items.Clear();
+            //Label1.Text = DropDownList3.SelectedValue;
+            sql2 = "select * from [User] where Subject='" + DropDownList3.SelectedValue + "'";
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand(sql1, con);
+                SqlCommand cmd = new SqlCommand(sql2, con);
                 cmd.CommandType = System.Data.CommandType.Text;
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -72,23 +109,6 @@ namespace WebApp
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string sql = "Update [User] set role='FacultyCoordinator' where Username ='" + DropDownList2.SelectedValue + "'";
-            try
-            {
-                con.Open();
-                SqlCommand cmd = new SqlCommand(sql, con);
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Label1.Text = DropDownList2.SelectedValue + "Assigned as Faculty Coordinator for " + DropDownList3.SelectedValue;
-            }
-            catch (Exception E)
-            {
-                Label1.Text = E.Message.ToString();
-            }
-        }
         private void B4_Click(object sender, EventArgs e)
         {
             Response.Redirect("Deleteuser.aspx");
@@ -96,7 +116,7 @@ namespace WebApp
 
         private void B3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Assignsubcord.aspx");
+            Response.Redirect("Subcoord.aspx");
         }
 
         private void B2_Click(object sender, EventArgs e)
@@ -108,5 +128,7 @@ namespace WebApp
         {
             Response.Redirect("Newlogin.aspx");
         }
+
+        
     }
 }

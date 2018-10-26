@@ -35,7 +35,7 @@ namespace WebApp
 
         private void B3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Assignsubcord.aspx");
+            Response.Redirect("Subcoord.aspx");
         }
 
         private void B2_Click(object sender, EventArgs e)

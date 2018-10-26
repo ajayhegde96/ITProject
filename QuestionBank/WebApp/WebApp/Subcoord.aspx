@@ -6,20 +6,14 @@
         <br />
         <br />
         &nbsp;&nbsp;&nbsp; Select Subject&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList3" runat="server">
+        <asp:DropDownList ID="DropDownList3" runat="server" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" EnableViewState="true" AutoPostBack="true">
             </asp:DropDownList>
         <br />
         <br />
         &nbsp;&nbsp;&nbsp; Select User&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList2" runat="server" />
+        <asp:DropDownList ID="DropDownList2" runat="server"  EnableViewState="true" AutoPostBack="true"/>
         <br />
         <br />
-    &nbsp;&nbsp;&nbsp; Role&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Admin</asp:ListItem>
-            <asp:ListItem>Faculty</asp:ListItem>
-            <asp:ListItem>FacultyCoordinator</asp:ListItem>
-        </asp:DropDownList>
         
         <br />
         <br />
