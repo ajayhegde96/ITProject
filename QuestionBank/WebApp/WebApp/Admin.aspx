@@ -18,30 +18,36 @@
     <br />
     <asp:Panel ID="Panel1" runat="server" Visible="false">
         <br />
-        &nbsp;&nbsp;&nbsp; Username&nbsp;
-        
+        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="username" runat="server" Text="UserName"></asp:Label>
+&nbsp;
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RequiredFieldValidator ID="req1" runat="server" ControlToValidate="TextBox1" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp; Password&nbsp;
+        &nbsp;&nbsp;&nbsp; &nbsp;
+        <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
+&nbsp;
         <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RequiredFieldValidator ID="req2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp; Subject&nbsp;
-        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Subject" DataValueField="Subject" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged"></asp:DropDownList>
+        &nbsp;&nbsp;&nbsp; &nbsp;
+        <asp:Label ID="subject" runat="server" Text="Subject"></asp:Label>
+        &nbsp;
+        <asp:DropDownList ID="DropDownList2" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Subject" DataValueField="Subject" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged">
+        </asp:DropDownList>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT DISTINCT [Subject] FROM [Subjects]"></asp:SqlDataSource>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp; Role&nbsp;&nbsp;
-        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="true">
+        &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="role" runat="server" Text="Role"></asp:Label>
+        &nbsp;&nbsp;
+        <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
             <asp:ListItem>Admin</asp:ListItem>
             <asp:ListItem>Faculty</asp:ListItem>
             <asp:ListItem>FacultyCoordinator</asp:ListItem>
@@ -61,12 +67,16 @@
     </asp:Panel>
     <asp:Panel ID="Panel3" runat="server" Visible="false">
         <br />
-        &nbsp;&nbsp;&nbsp; Select Subject&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="ssubject" runat="server" Text="Select Subject"></asp:Label>
+        &nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList4" runat="server" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged" EnableViewState="true" AutoPostBack="true">
             </asp:DropDownList>
         <br />
         <br />
-        &nbsp;&nbsp;&nbsp; Select User&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;
+        <asp:Label ID="suser" runat="server" Text="Select User"></asp:Label>
+        &nbsp;
         <asp:DropDownList ID="DropDownList5" runat="server"  EnableViewState="true" AutoPostBack="true"/>
         <br />
         <br />
@@ -78,7 +88,9 @@
         <asp:Label ID="Label3" runat="server" />
     </asp:Panel>
     <asp:Panel ID="Panel4" runat="server" Visible="false">
-         Select User To Delete&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;
+         &nbsp;
+         <asp:Label ID="sdelete" runat="server" Text="Select User To Delete"></asp:Label>
+         &nbsp;&nbsp; :&nbsp;&nbsp;&nbsp;
         <asp:DropDownList ID="DropDownList3" runat="server"  EnableViewState="true" OnSelectedIndexChanged="DropDownList3_SelectedIndexChanged" AutoPostBack="true">
         </asp:DropDownList>
         <br />
