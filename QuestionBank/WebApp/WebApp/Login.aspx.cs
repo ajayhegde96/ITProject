@@ -29,9 +29,9 @@ namespace WebApp
                 string role = reader["Role"].ToString();
                 string subject = reader["Subject"].ToString();
                 Session["Sub"] = subject;
-                Session["Sid"] = Session.SessionID;
+                Session["Sid"] = TextBox1.Text;
                 con.Close();
-                Response.Redirect(string.Format("{0}.aspx",role));
+                Response.Redirect(string.Format("{0}.aspx?Username="+TextBox1.Text,role));
 
             }
             con.Close();

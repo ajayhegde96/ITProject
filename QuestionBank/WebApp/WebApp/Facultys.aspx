@@ -1,8 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Logout.Master" AutoEventWireup="true" CodeBehind="Faculty.aspx.cs" Inherits="WebApp.WebForm8" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Faculty.aspx.cs" Inherits="WebApp.Faculty" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
     
+</head>
+<body style="height: 429px">
+    <form id="form1" runat="server" >
         <div style="height: 506px">
             <br />
             <br />
@@ -64,5 +70,7 @@
             <br />
             
         </div>
- 
-</asp:Content>
+    </form>
+    
+</body>
+</html>

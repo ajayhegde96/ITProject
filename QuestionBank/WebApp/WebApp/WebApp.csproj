@@ -67,16 +67,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Faculty.aspx" />
+    <Content Include="Facultys.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="SubjectCoordinator.aspx" />
     <Content Include="Web.config" />
     <Content Include="Newlogin.aspx" />
     <Content Include="Deleteuser.aspx" />
-    <Content Include="Admin.aspx" />
+    <Content Include="Admins.aspx" />
     <Content Include="Viewpaper.aspx" />
     <Content Include="ViewQuestionPaper.aspx" />
     <Content Include="Subcoord.aspx" />
+    <Content Include="Admin.aspx" />
+    <Content Include="Faculty.aspx" />
+    <Content Include="FacultyCoordinator.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.Master.cs">
@@ -86,12 +89,12 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Faculty.aspx.cs">
-      <DependentUpon>Faculty.aspx</DependentUpon>
+    <Compile Include="Facultys.aspx.cs">
+      <DependentUpon>Facultys.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Faculty.aspx.designer.cs">
-      <DependentUpon>Faculty.aspx</DependentUpon>
+    <Compile Include="Facultys.aspx.designer.cs">
+      <DependentUpon>Facultys.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -99,6 +102,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.Master.cs">
+      <DependentUpon>Logout.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.Master.designer.cs">
+      <DependentUpon>Logout.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Newlogin.aspx.cs">
@@ -125,12 +135,12 @@
     <Compile Include="SubjectCoordinator.aspx.designer.cs">
       <DependentUpon>SubjectCoordinator.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin.aspx.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="Admins.aspx.cs">
+      <DependentUpon>Admins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin.aspx.designer.cs">
-      <DependentUpon>Admin.aspx</DependentUpon>
+    <Compile Include="Admins.aspx.designer.cs">
+      <DependentUpon>Admins.aspx</DependentUpon>
     </Compile>
     <Compile Include="Viewpaper.aspx.cs">
       <DependentUpon>Viewpaper.aspx</DependentUpon>
@@ -150,9 +160,31 @@
       <DependentUpon>Subcoord.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty.aspx.cs">
+      <DependentUpon>Faculty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty.aspx.designer.cs">
+      <DependentUpon>Faculty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyCoordinator.aspx.cs">
+      <DependentUpon>FacultyCoordinator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FacultyCoordinator.aspx.designer.cs">
+      <DependentUpon>FacultyCoordinator.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.Master" />
+    <Content Include="Logout.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
