@@ -31,6 +31,8 @@ namespace WebApp
 
         protected void ChooseQuestions(object sender, EventArgs e)
         {
+            GridView1.AllowPaging = true;
+            GridView1.PageSize = 5;
             GridView1.DataSource = SqlDataSource1;
             GridView1.DataBind();
             GridView1.Visible = true;
@@ -57,6 +59,8 @@ namespace WebApp
 
         protected void ViewQuestionPaper(object sender, EventArgs e)
         {
+            GridView2.AllowPaging = true;
+            GridView2.PageSize = 5;
             GridView2.DataSource = SqlDataSource2;
             GridView2.DataBind();
             GridView2.Visible = true;
@@ -64,51 +68,9 @@ namespace WebApp
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            /* if (e.Row.RowType == DataControlRowType.DataRow)
-             {
-                 //Change the id of checkbox here
-                 CheckBox chk = (CheckBox)e.Row.FindControl("cbSelect");
-                 //If checkbox checked then change color of row
-                 if (chk.Checked == true)
-                 {
-                     e.Row.BackColor = System.Drawing.Color.Red;
-                 }
-                 else
-                 {
-                     e.Row.BackColor = System.Drawing.Color.Green;
-                 }
-             }*/
+           
         }
 
-        /* protected void cbSelect_CheckedChanged(object sender, EventArgs e)
-         {
-             Label1.Text += "CheckBOxxx!!!" + " ";
-             CheckBox chk = (sender as CheckBox);
-             if(chk!=null)
-             {
-                 if (chk.ID == "cbSelect")
-                 {
-                     foreach (GridViewRow row in GridView1.Rows)
-                     {
-                         if (row.RowType == DataControlRowType.DataRow)
-                         {
-                             // row.Cells[0].Controls.OfType<CheckBox>().FirstOrDefault().Checked = chk.Checked;
-                             Label1.Text = row.Cells[5].GetType().Attributes.CompareTo(chk.Attributes).ToString();
-                             if (chk.Checked)
-                             {
-                                 row.BackColor = Color.YellowGreen;
-                                 row.Font.Bold = true;
-                             }
-                         }
-                         else
-                         {
-                             row.BackColor = System.Drawing.Color.White;
-                             row.ForeColor = Color.Black;
-
-                         }
-                     }
-                 }
-             }
-         }*/
+       
     }
 }

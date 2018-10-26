@@ -17,13 +17,20 @@ namespace WebApp
             if (Session["Sid"] == null)
                 Response.Redirect("Login.aspx");
             string user = Request.QueryString["Username"];
+            HttpCookie cookie = Request.Cookies[user];
+            if(cookie==null)
+            {
+                Label2.Text = "Reached";
+                cookie = new HttpCookie(user);
+                cookie.Expires = DateTime.Now.AddYears(1);
+                cookie["Questions"] = "0";
+                Response.Cookies.Add(cookie);
+            }
             Label l1 = Master.FindControl("Welcome") as Label;
             l1.Text = "Welcome " + user;
+            Label2.Text = cookie["Questions"];
             Button logout = Master.FindControl("Button0") as Button;
             logout.Click += new EventHandler(Logout_Onclick);
-
-            Panel1.Visible = false;
-            Panel2.Visible = false;
         }
 
         private void Logout_Onclick(object sender, EventArgs e)
@@ -36,27 +43,40 @@ namespace WebApp
         {
             Panel1.Visible = true;
             Panel2.Visible = true;
+            Panel3.Visible = false;
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             con.Open();
-            string sql = "insert into Questions([question_details], [type], [marks], [subject], [is_selected]) values(@ques,@type,@marks,@subject,@is_selected)";
+            string sql = "insert into Questions([question_details], [type], [marks], [subject], [Faculty], [is_selected]) values(@ques,@type,@marks,@subject,@faculty,@is_selected)";
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.Parameters.AddWithValue("@ques", TextBox1.Text);
             cmd.Parameters.AddWithValue("@type", DropDownList1.SelectedValue);
             cmd.Parameters.AddWithValue("@marks", TextBox2.Text);
             cmd.Parameters.AddWithValue("@subject", Session["Sub"].ToString());
             cmd.Parameters.AddWithValue("@is_selected", "0");
+            cmd.Parameters.AddWithValue("@faculty",Session["Sid"].ToString());
             int res = cmd.ExecuteNonQuery();
             if (res != 0)
             {
+                HttpCookie cookie = Request.Cookies[Session["Sid"].ToString()];
+                int q = Convert.ToInt32(cookie["Questions"].ToString());
+                q++;
+                cookie["Questions"] = q.ToString();
+                Response.Cookies.Add(cookie);
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Inserted')", true);
                 con.Close();
-                //Response.Redirect(Request.FilePath);
-                // Label1.Text = ViewState["msg"].ToString();
             }
             GridView1.DataBind();
+        }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+            Panel3.Visible = true;
+            Panel1.Visible = false;
+            Panel2.Visible = false;
+            Button4.CausesValidation = false;
         }
     }
 }
