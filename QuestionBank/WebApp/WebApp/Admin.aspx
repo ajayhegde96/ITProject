@@ -73,7 +73,29 @@
         &nbsp;&nbsp;&nbsp;<asp:Label ID="Label1" runat="server" />
     </asp:Panel>
     <asp:Panel ID="Panel2" runat="server" Visible="false">
-       
+        <br />
+        &nbsp;<asp:Label ID="Label4" runat="server" Text="Subject"></asp:Label>
+        &nbsp;&nbsp;
+        <asp:DropDownList ID="DropDownList6" runat="server" AutoPostBack="true" DataSourceID="SqlDataSource2" DataTextField="Subject" DataValueField="Subject" OnSelectedIndexChanged="DropDownList6_SelectedIndexChanged">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [Subject] FROM [Subjects]"></asp:SqlDataSource>
+    <br />
+    <br />
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" OnSorting="GridView1_Sorting" >
+        <Columns>
+            <asp:BoundField DataField="question_details" HeaderText="question_details" SortExpression="question_details" />
+            <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />
+            <asp:BoundField DataField="marks" HeaderText="marks" SortExpression="marks" />
+        </Columns>
+    </asp:GridView>
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [question_details], [type], [marks] FROM [Questions] WHERE (([subject] = @subject) AND ([is_selected] = @is_selected))">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="DropDownList6" Name="subject" PropertyName="SelectedValue" Type="String" />
+            <asp:Parameter DefaultValue="1" Name="is_selected" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <br/>
+    <br />
     </asp:Panel>
     <asp:Panel ID="Panel3" runat="server" Visible="false">
         <br />

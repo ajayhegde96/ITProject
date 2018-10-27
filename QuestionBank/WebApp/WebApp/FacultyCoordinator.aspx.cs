@@ -22,14 +22,14 @@ namespace WebApp
             Button logout = Master.FindControl("Button0") as Button;
             logout.Click += new EventHandler(Logout_Onclick);
 
-             if (!IsPostBack)
-             {
+            if (!IsPostBack)
+            {
                 /*GridView1.Visible = true;
                 GridView1.DataSource = null;
                 GridView2.Visible = false;
                 GridView2.DataSource = null;*/
                 BindData();
-             }
+            }
 
         }
         private void BindData()
@@ -149,7 +149,7 @@ namespace WebApp
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-             GridView1.PageIndex = e.NewPageIndex;
+            GridView1.PageIndex = e.NewPageIndex;
             GridView1.DataBind();
         }
 

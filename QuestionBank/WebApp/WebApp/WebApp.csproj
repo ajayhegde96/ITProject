@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Facultys.aspx" />
+    <Content Include="Images\college_banner.JPG" />
     <Content Include="Login.aspx" />
     <Content Include="SubjectCoordinator.aspx" />
     <Content Include="Web.config" />

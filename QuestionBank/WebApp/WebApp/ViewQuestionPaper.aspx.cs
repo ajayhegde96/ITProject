@@ -18,6 +18,7 @@ namespace WebApp
             {
                 DataView dv = (DataView)SqlDataSource2.Select(DataSourceSelectArguments.Empty);
                 int datacount = dv.Count;
+                Label1.Text = datacount.ToString();
                 if (datacount > 0)
                 {
                     GridView1.DataSource = SqlDataSource2;

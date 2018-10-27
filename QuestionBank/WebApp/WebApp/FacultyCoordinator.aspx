@@ -19,7 +19,6 @@
             left:2%;
             width:45%;
         }
-
 </style>
 
     <script type="text/javascript">
@@ -32,7 +31,6 @@
                  chkbox.parentElement.parentElement.style.backgroundColor = 'white';
                  chkbox.parentElement.parentElement.style.color = 'black';
              }
-
          }
         
     </script>
@@ -114,6 +112,5 @@
                 <br />
            </asp:Panel>
         </div>
-    </form>
 
 </asp:Content>

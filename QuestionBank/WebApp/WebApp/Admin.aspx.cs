@@ -18,6 +18,10 @@ namespace WebApp
            
             if (Session["Sid"] == null)
                 Response.Redirect("Login.aspx");
+            //if (!IsPostBack)
+            //{
+            //    GridView1.DataBind();
+            //}
 
             string user = Request.QueryString["Username"];
             Label l1 = Master.FindControl("Welcome") as Label;
@@ -142,6 +146,35 @@ namespace WebApp
         {
             Panel2.Visible = true;
             Panel1.Visible = Panel3.Visible = Panel4.Visible = false;
+           
+        }
+        protected void GridView1_Sorting(object sender, GridViewSortEventArgs e)
+
+        {
+            GridView1.DataBind();         
+        }
+        //protected void GridView1_DataBinding(object sender, GridViewSortEventArgs e)
+
+        //{
+        //    GridView1.DataSource=SqlDataSource3;
+        //}
+
+        protected void DropDownList6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataView dv = (DataView)SqlDataSource3.Select(DataSourceSelectArguments.Empty);
+            int datacount = dv.Count;
+            if (datacount > 0)
+            {
+                GridView1.DataSource = SqlDataSource3;
+                GridView1.Visible = true;
+                GridView1.DataBind();
+            }
+            else
+            {
+                Response.Write("<script>alert('No Question Paper Found');</script>");
+                GridView1.DataSource = null;
+                GridView1.Visible = false;
+            }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
@@ -252,5 +285,7 @@ namespace WebApp
         {
 
         }
+
+        
     }
 }

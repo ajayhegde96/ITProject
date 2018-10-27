@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApp {
-    
-    
-    public partial class WebForm9 {
-        
+namespace WebApp
+{
+
+
+    public partial class WebForm9
+    {
+
         /// <summary>
         /// Panel1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel1;
-        
+
         /// <summary>
         /// chooseQuestionsButton control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button chooseQuestionsButton;
-        
+
         /// <summary>
         /// GridView1 control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
-        
+
         /// <summary>
         /// SqlDataSource1 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// generatePaperButton control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button generatePaperButton;
-        
+
         /// <summary>
         /// Panel2 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panel2;
-        
+
         /// <summary>
         /// viewPaperButton control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button viewPaperButton;
-        
+
         /// <summary>
         /// GridView2 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace WebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView2;
-        
+
         /// <summary>
         /// SqlDataSource2 control.
         /// </summary>
