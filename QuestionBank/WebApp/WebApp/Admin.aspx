@@ -81,17 +81,19 @@
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [Subject] FROM [Subjects]"></asp:SqlDataSource>
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" OnSorting="GridView1_Sorting" >
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id"  Visible="False" DataSourceID="SqlDataSource3">
         <Columns>
-            <asp:BoundField DataField="question_details" HeaderText="question_details" SortExpression="question_details" />
-            <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" />
-            <asp:BoundField DataField="marks" HeaderText="marks" SortExpression="marks" />
+            <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
+            <asp:BoundField DataField="subject" HeaderText="Subject" SortExpression="subject" />
+            <asp:BoundField DataField="marks" HeaderText="Marks" SortExpression="marks" />
+            <asp:BoundField DataField="type" HeaderText="Type" SortExpression="type" />
+            <asp:BoundField DataField="question_details" HeaderText="Question" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [question_details], [type], [marks] FROM [Questions] WHERE (([subject] = @subject) AND ([is_selected] = @is_selected))">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [subject], [marks], [type], [question_details] FROM [Questions] WHERE (([is_selected] = @is_selected) AND ([subject] = @subject))">
         <SelectParameters>
-            <asp:ControlParameter ControlID="DropDownList6" Name="subject" PropertyName="SelectedValue" Type="String" />
             <asp:Parameter DefaultValue="1" Name="is_selected" Type="Int32" />
+            <asp:ControlParameter ControlID="DropDownList6" Name="subject" PropertyName="SelectedValue" Type="String" />
         </SelectParameters>
     </asp:SqlDataSource>
     <br/>
