@@ -24,77 +24,14 @@ namespace WebApp
 
             if (!IsPostBack)
             {
-                /*GridView1.Visible = true;
+                GridView1.Visible = false;
                 GridView1.DataSource = null;
                 GridView2.Visible = false;
-                GridView2.DataSource = null;*/
-                BindData();
+                GridView2.DataSource = null;
             }
 
         }
-        private void BindData()
-
-        {
-
-            DataTable table = new DataTable();
-
-            // get the connection
-
-            using (SqlConnection conn = new SqlConnection(str))
-
-            {
-
-                // write the sql statement to execute
-
-                string sql = "SELECT [id], [question_details], [type], [marks], [subject] FROM [Questions] WHERE ([is_selected] = 0)";
-
-                // instantiate the command object to fire
-
-                using (SqlCommand cmd = new SqlCommand(sql, conn))
-
-                {
-
-                    // get the adapter object and attach the command object to it
-
-                    using (SqlDataAdapter ad = new SqlDataAdapter(cmd))
-
-                    {
-
-                        // fire Fill method to fetch the data and fill into DataTable
-
-                        ad.Fill(table);
-
-                    }
-
-                }
-
-            }
-
-            GridView1.DataSource = table;
-
-            GridView1.DataBind();
-
-        }
-
-        protected void PaginateTheData(object sender, GridViewPageEventArgs e)
-
-        {
-
-            GridView1.PageIndex = e.NewPageIndex;
-
-            this.BindData();
-
-        }
-
-        protected void GetSelectedRecord(object sender, EventArgs e)
-
-        {
-
-            var autoId = GridView1.SelectedDataKey.Value;
-
-            Response.Write("Selected record: " + autoId);
-
-        }
+       
 
         private void Logout_Onclick(object sender, EventArgs e)
         {
@@ -109,10 +46,14 @@ namespace WebApp
             GridView2.Visible = false;
             GridView1.Visible = true;
             GridView1.EnablePersistedSelection = true;
+           // GridView1.DataSource = SqlDataSource1;
+            //GridView1.DataBind();
         }
         protected void GenerateQuestionPaper(object sender, EventArgs e)
         {
-            Label1.Text = "Reached";
+            //Label1.Text = "Reached";
+            Label1.Text = Session["Sub"].ToString();
+
             SqlConnection con = new SqlConnection(str);
             con.Open();
             foreach (GridViewRow item in GridView1.Rows)
@@ -134,6 +75,8 @@ namespace WebApp
             GridView2.PageSize = 5;
             GridView1.Visible = false;
             GridView2.Visible = true;
+           // GridView2.DataSource = SqlDataSource2;
+           // GridView2.DataBind();
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)

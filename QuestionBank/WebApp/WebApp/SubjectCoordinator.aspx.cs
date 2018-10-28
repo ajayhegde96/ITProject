@@ -18,6 +18,7 @@ namespace WebApp
             if (Session["Sid"] == null)
                 Response.Redirect("Login.aspx");
 
+           
             if (!IsPostBack)
             {
                 GridView1.Visible = false;
@@ -36,11 +37,13 @@ namespace WebApp
             GridView1.DataSource = SqlDataSource1;
             GridView1.DataBind();
             GridView1.Visible = true;
+            
         }
 
         protected void GenerateQuestionPaper(object sender, EventArgs e)
         {
-            Label1.Text = "Reached";
+            Label1.Text = Session["Sub"].ToString();
+            //Label1.Text = "Reached";
             string str = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=QuestionBank;Integrated Security=True;";
             SqlConnection con = new SqlConnection(str);
             con.Open();

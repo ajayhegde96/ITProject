@@ -72,13 +72,14 @@
                     <SortedDescendingCellStyle BackColor="#FCF6C0" />
                     <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [question_details], [type], [marks], [subject] FROM [Questions] WHERE ([is_selected] = @is_selected)">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT DISTINCT [question_details], [type], [marks], [subject] FROM [Questions] WHERE (([is_selected] = @is_selected) AND ([subject] = @subject))">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="0" Name="is_selected" Type="Int32" />
+                        <asp:SessionParameter Name="subject" SessionField="Sub" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
                 <br />
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                <asp:Label ID="Label1" runat="server" Text="dfgfdgdf"></asp:Label>
                 <asp:Button ID="generatePaperButton" runat="server" OnClick="GenerateQuestionPaper" Text="Generate Question Paper" />
                 <br />
 
