@@ -13,11 +13,11 @@ namespace WebApp
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["Sid"] == null)
                 Response.Redirect("Login.aspx");
             string user = Request.QueryString["Username"];
             HttpCookie cookie = Request.Cookies[user];
+            //Label3.Text = cookie.Value;
             if(cookie==null)
             {
                 Label2.Text = "Reached";
@@ -28,9 +28,10 @@ namespace WebApp
             }
             Label l1 = Master.FindControl("Welcome") as Label;
             l1.Text = "Welcome " + user;
-            Label2.Text = cookie["Questions"];
+            //Label2.Text = cookie["Questions"];
             Button logout = Master.FindControl("Button0") as Button;
             logout.Click += new EventHandler(Logout_Onclick);
+            Label3.Text = "You have written " + cookie["Questions"] + " questions!";
         }
 
         private void Logout_Onclick(object sender, EventArgs e)
@@ -65,10 +66,13 @@ namespace WebApp
                 q++;
                 cookie["Questions"] = q.ToString();
                 Response.Cookies.Add(cookie);
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Inserted')", true);
                 con.Close();
+                TextBox1.Text = TextBox2.Text = "";
+                //Label3.Text = "You have written " + q.ToString() + "questions!";
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Successfully Inserted')", true);
             }
             GridView1.DataBind();
+            Server.Transfer(Request.FilePath);
         }
 
         protected void Button4_Click(object sender, EventArgs e)
