@@ -66,6 +66,9 @@ namespace WebApp
                 }
             }
             //Label1.Text = (GridView1.Rows[0].Cells[0].Text);
+            SqlCommand command = new SqlCommand("Update Subjects set Paper=1 where Coordinator=@p1", con);
+            command.Parameters.AddWithValue("@p1", Session["Sid"]);
+            command.ExecuteNonQuery();
             con.Close();
         }
 

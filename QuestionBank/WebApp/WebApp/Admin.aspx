@@ -81,16 +81,24 @@
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [Subject] FROM [Subjects]"></asp:SqlDataSource>
     <br />
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="id"  Visible="False" DataSourceID="SqlDataSource3">
+    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  Visible="False" DataSourceID="SqlDataSource3" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
-            <asp:BoundField DataField="subject" HeaderText="Subject" SortExpression="subject" />
             <asp:BoundField DataField="marks" HeaderText="Marks" SortExpression="marks" />
             <asp:BoundField DataField="type" HeaderText="Type" SortExpression="type" />
             <asp:BoundField DataField="question_details" HeaderText="Question" />
         </Columns>
+        <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+        <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+        <RowStyle BackColor="#FFFBD6" ForeColor="#333333" />
+        <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="Navy" />
+        <SortedAscendingCellStyle BackColor="#FDF5AC" />
+        <SortedAscendingHeaderStyle BackColor="#4D0000" />
+        <SortedDescendingCellStyle BackColor="#FCF6C0" />
+        <SortedDescendingHeaderStyle BackColor="#820000" />
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [subject], [marks], [type], [question_details] FROM [Questions] WHERE (([is_selected] = @is_selected) AND ([subject] = @subject))">
+    <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [marks], [type], [question_details] FROM [Questions] WHERE (([is_selected] = @is_selected) AND ([subject] = @subject))">
         <SelectParameters>
             <asp:Parameter DefaultValue="1" Name="is_selected" Type="Int32" />
             <asp:ControlParameter ControlID="DropDownList6" Name="subject" PropertyName="SelectedValue" Type="String" />

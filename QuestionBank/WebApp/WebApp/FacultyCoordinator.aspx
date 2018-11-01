@@ -45,10 +45,10 @@
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" InsertVisible="False" ReadOnly="True" />
-                        <asp:BoundField DataField="Question" HeaderText="question_details"  />
-                        <asp:BoundField DataField="Type" HeaderText="type" SortExpression="type" />
-                        <asp:BoundField DataField="Marks" HeaderText="marks" SortExpression="marks"/>
-                        <asp:BoundField DataField="Subject" HeaderText="subject" SortExpression="subject" />
+                        <asp:BoundField DataField="question_details" HeaderText="Question"  />
+                        <asp:BoundField DataField="type" HeaderText="Type" SortExpression="type" />
+                        <asp:BoundField DataField="marks" HeaderText="Marks" SortExpression="marks"/>
+                        <asp:BoundField DataField="subject" HeaderText="Subject" SortExpression="subject" />
                          <asp:Templatefield HeaderText="Select">
                             <itemtemplate>
                                 <asp:Checkbox ID="cbSelect" runat="server" OnClick="javascript:ColorChange(this);">
@@ -113,7 +113,6 @@
                 <br />
                 <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
                 <br />
-                <asp:Button ID="Button1" runat="server" OnClick="GenerateQuestionPaper" Text="Generate Question Paper" />
            </asp:Panel>
         </div>
 </asp:Content>

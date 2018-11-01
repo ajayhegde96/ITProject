@@ -12,7 +12,7 @@ namespace WebApp
     public partial class WebForm7 : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLlocalDB;Initial Catalog=QuestionBank;Integrated Security=True;Pooling=False;MultipleActiveResultSets=true;");
-        string name = null;
+       static string name = null;
         protected void Page_Load(object sender, EventArgs e)
         {
            
@@ -22,12 +22,13 @@ namespace WebApp
             //{
             //    GridView1.DataBind();
             //}
-
             string user = Request.QueryString["Username"];
             Label l1 = Master.FindControl("Welcome") as Label;
             l1.Text = "Welcome " + user;
             Button logout = Master.FindControl("Button0") as Button;
             logout.Click += new EventHandler(Logout_Onclick);
+            if(!IsPostBack)
+                ViewState["old"] = "";
         }
 
         private void Logout_Onclick(object sender, EventArgs e)
@@ -227,6 +228,8 @@ namespace WebApp
                 else
                 {
                     Label3.Text = "This subject has " + dt.Rows[0]["Coordinator"] + " as Coordinator";
+                    name = dt.Rows[0]["Coordinator"].ToString();
+                    ViewState["old"]= dt.Rows[0]["Coordinator"].ToString();
                 }
                 
                 con.Close();
