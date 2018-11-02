@@ -39,6 +39,8 @@
             <asp:Label ID="marksLabel" runat="server" Text="Marks" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="TextBox2" runat="server" EnableViewState="false"></asp:TextBox>
+            &nbsp;&nbsp;
+            <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Marks should be an Integer between 1-5 " ControlToValidate="TextBox2" MaximumValue="5" MinimumValue="1" Type="Integer"></asp:RangeValidator>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -102,7 +104,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="type" HeaderText="type" SortExpression="type" ReadOnly="true" />
-                    <asp:CommandField ShowEditButton=" True" />
+                    <asp:CommandField ShowEditButton=" True" ShowDeleteButton="true" />
 
                 </Columns>
                 <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
@@ -116,13 +118,16 @@
                 <SortedDescendingHeaderStyle BackColor="#820000" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [question_details], [type], [marks], [subject] FROM [Questions] WHERE ([Faculty] = @Faculty)"
-                UpdateCommand="Update [Questions] set question_details=@question_details,marks=@marks where id=@id">
+                UpdateCommand="Update [Questions] set question_details=@question_details,marks=@marks where id=@id" DeleteCommand="Delete from [Questions] where id=@id" OnDeleted="SqlDataSource2_Deleted">
                 <SelectParameters>
                     <asp:SessionParameter Name="Faculty" SessionField="Sid" Type="String" />
                 </SelectParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="id" Type="String" />
                 </UpdateParameters>
+                <DeleteParameters>
+                    <asp:Parameter Name="id" Type="String" />
+                </DeleteParameters>
             </asp:SqlDataSource>
             <br />
             <asp:Label ID="Label2" runat="server" />

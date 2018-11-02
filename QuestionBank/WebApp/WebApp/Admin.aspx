@@ -29,6 +29,8 @@
         <asp:Label ID="password" runat="server" Text="Password"></asp:Label>
 &nbsp;
         <asp:TextBox ID="TextBox2" runat="server" TextMode="Password"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;
+        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Password should be Alphanumeric with length between 6 and 15 characters" ControlToValidate="TextBox2" ValidationExpression="[a-z0-9A-Z]{6,15}"></asp:RegularExpressionValidator>
         <br />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:RequiredFieldValidator ID="req2" runat="server" ControlToValidate="TextBox2" ErrorMessage="Enter Valid data"></asp:RequiredFieldValidator>

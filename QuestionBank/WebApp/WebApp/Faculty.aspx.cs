@@ -82,5 +82,14 @@ namespace WebApp
             Panel2.Visible = false;
             Button4.CausesValidation = false;
         }
+
+        protected void SqlDataSource2_Deleted(object sender, SqlDataSourceStatusEventArgs e)
+        {
+            HttpCookie cookie = Request.Cookies[Session["Sid"].ToString()];
+            int q = Convert.ToInt32(cookie["Questions"].ToString());
+            q--;
+            cookie["Questions"] = q.ToString();
+            Response.Cookies.Add(cookie);
+        }
     }
 }
