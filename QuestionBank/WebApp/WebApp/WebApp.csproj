@@ -68,39 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\loginTheme.css" />
-    <Content Include="Facultys.aspx" />
     <Content Include="Images\back.jpg.jpg" />
     <Content Include="Images\college_banner.JPG" />
     <Content Include="Images\hero.jpg" />
     <Content Include="Images\sst.jpg" />
     <Content Include="Login.aspx" />
-    <Content Include="SubjectCoordinator.aspx" />
     <Content Include="Web.config" />
-    <Content Include="Newlogin.aspx" />
-    <Content Include="Deleteuser.aspx" />
-    <Content Include="Admins.aspx" />
-    <Content Include="Viewpaper.aspx" />
-    <Content Include="ViewQuestionPaper.aspx" />
-    <Content Include="Subcoord.aspx" />
     <Content Include="Admin.aspx" />
     <Content Include="Faculty.aspx" />
     <Content Include="FacultyCoordinator.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.Master.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin.Master.designer.cs">
-      <DependentUpon>Admin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Facultys.aspx.cs">
-      <DependentUpon>Facultys.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Facultys.aspx.designer.cs">
-      <DependentUpon>Facultys.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -116,55 +94,6 @@
       <DependentUpon>Logout.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Newlogin.aspx.cs">
-      <DependentUpon>Newlogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Newlogin.aspx.designer.cs">
-      <DependentUpon>Newlogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Deleteuser.aspx.cs">
-      <DependentUpon>Deleteuser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Deleteuser.aspx.designer.cs">
-      <DependentUpon>Deleteuser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Subcoord.aspx.designer.cs">
-      <DependentUpon>Subcoord.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SubjectCoordinator.aspx.cs">
-      <DependentUpon>SubjectCoordinator.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SubjectCoordinator.aspx.designer.cs">
-      <DependentUpon>SubjectCoordinator.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admins.aspx.cs">
-      <DependentUpon>Admins.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admins.aspx.designer.cs">
-      <DependentUpon>Admins.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Viewpaper.aspx.cs">
-      <DependentUpon>Viewpaper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Viewpaper.aspx.designer.cs">
-      <DependentUpon>Viewpaper.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewQuestionPaper.aspx.cs">
-      <DependentUpon>ViewQuestionPaper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewQuestionPaper.aspx.designer.cs">
-      <DependentUpon>ViewQuestionPaper.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Subcoord.aspx.cs">
-      <DependentUpon>Subcoord.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,7 +117,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin.Master" />
     <Content Include="Logout.Master" />
     <Content Include="App_Themes\Theme1\Skin1.skin" />
     <None Include="packages.config" />

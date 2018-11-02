@@ -90,6 +90,7 @@ namespace WebApp
             q--;
             cookie["Questions"] = q.ToString();
             Response.Cookies.Add(cookie);
+            Server.Transfer(Request.FilePath);
         }
     }
 }
