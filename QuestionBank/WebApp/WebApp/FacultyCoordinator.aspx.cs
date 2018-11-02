@@ -41,8 +41,6 @@ namespace WebApp
 
         protected void ChooseQuestions(object sender, EventArgs e)
         {
-            GridView1.AllowPaging = true;
-            GridView1.PageSize = 5;
             GridView2.Visible = false;
             GridView1.Visible = true;
             GridView1.EnablePersistedSelection = true;
@@ -52,7 +50,7 @@ namespace WebApp
         protected void GenerateQuestionPaper(object sender, EventArgs e)
         {
             //Label1.Text = "Reached";
-            Label1.Text = Session["Sub"].ToString();
+           // Label1.Text = Session["Sub"].ToString();
 
             SqlConnection con = new SqlConnection(str);
             con.Open();
@@ -70,12 +68,12 @@ namespace WebApp
             command.Parameters.AddWithValue("@p1", Session["Sid"]);
             command.ExecuteNonQuery();
             con.Close();
+            Label1.Text = "Question Paper Generated";
+            GridView1.DataBind();
         }
 
         protected void ViewQuestionPaper(object sender, EventArgs e)
         {
-            GridView2.AllowPaging = true;
-            GridView2.PageSize = 5;
             GridView1.Visible = false;
             GridView2.Visible = true;
            // GridView2.DataSource = SqlDataSource2;
