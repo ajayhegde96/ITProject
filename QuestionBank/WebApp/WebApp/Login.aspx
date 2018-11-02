@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="Login.aspx.cs" Inherits="WebApp.Login" %>
+<link href="App_Themes/loginTheme.css" rel="stylesheet" type="text/css" />
 
 <!DOCTYPE html>
 
@@ -6,7 +7,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body>
+<body id="body">
     <form id="form1" runat="server">
         <div style="height: 396px">
             <asp:Panel ID="Panel1" runat="server" Height="221px" Width="354px">
