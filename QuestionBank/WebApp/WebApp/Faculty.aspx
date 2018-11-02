@@ -41,6 +41,7 @@
             <asp:TextBox ID="TextBox2" runat="server" EnableViewState="false"></asp:TextBox>
             &nbsp;&nbsp;
             <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Marks should be an Integer between 1-5 " ControlToValidate="TextBox2" MaximumValue="5" MinimumValue="1" Type="Integer"></asp:RangeValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Data" ControlToValidate="TextBox2" ></asp:RequiredFieldValidator>
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

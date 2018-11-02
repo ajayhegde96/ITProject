@@ -44,7 +44,6 @@
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowDataBound="GridView1_RowDataBound" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" PageSize="10" DataSourceID="SqlDataSource1" DataKeyNames="id">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="Id" SortExpression="id" />
                         <asp:BoundField DataField="question_details" HeaderText="Question"  />
                         <asp:BoundField DataField="type" HeaderText="Type" SortExpression="type" />
                         <asp:BoundField DataField="marks" HeaderText="Marks" SortExpression="marks"/>
@@ -67,7 +66,7 @@
                     <SortedDescendingCellStyle BackColor="#FCF6C0" />
                     <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id],[question_details], [type], [marks], [subject],[Faculty] FROM [Questions] WHERE (([is_selected] = @is_selected) AND ([subject] = @subject))">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [question_details], [type], [marks], [subject],[Faculty] FROM [Questions] WHERE (([is_selected] = @is_selected) AND ([subject] = @subject))">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="0" Name="is_selected" Type="Int32" />
                         <asp:SessionParameter Name="subject" SessionField="Sub" Type="String" />
@@ -90,7 +89,6 @@
                 <asp:GridView ID="GridView2" runat="server" AllowPaging="True" AllowSorting="True"  OnPageIndexChanging="GridView2_PageIndexChanging" AutoGenerateColumns="False"  DataKeyNames="id" CellPadding="4" ForeColor="#333333" GridLines="None"  DataSourceID="SqlDataSource2">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" ReadOnly="True" InsertVisible="False" />
                         <asp:BoundField DataField="question_details" HeaderText="Question"  />
                         <asp:BoundField DataField="type" HeaderText="Type" SortExpression="type" />
                         <asp:BoundField DataField="marks" HeaderText="Marks" SortExpression="marks"/>
@@ -105,7 +103,7 @@
                     <SortedDescendingCellStyle BackColor="#FCF6C0" />
                     <SortedDescendingHeaderStyle BackColor="#820000" />
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT [id], [question_details], [type], [marks] FROM [Questions] WHERE (([subject] = @subject) AND ([is_selected] = @is_selected))">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:QuestionBankConnectionString %>" SelectCommand="SELECT  [question_details], [type], [marks] FROM [Questions] WHERE (([subject] = @subject) AND ([is_selected] = @is_selected))">
                     <SelectParameters>
                         <asp:SessionParameter Name="subject" SessionField="Sub" Type="String" />
                         <asp:Parameter DefaultValue="1" Name="is_selected" Type="Int32" />
